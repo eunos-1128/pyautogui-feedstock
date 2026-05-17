@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [py<36]
-  number: 4
+  number: 5
   script:
     - {{ PYTHON }} -m pip install . -vv    # [not linux]
     - "DISPLAY=localhost:1.0 xvfb-run {{ PYTHON }} -m pip install . -vv"  # [linux]
@@ -26,7 +26,6 @@ requirements:
     - python-xlib  # [linux]
     - pyobjc-framework-quartz  # [osx]
     - setuptools
-
   run:
     - mouseinfo
     - pygetwindow >=0.0.5  # [not linux]
