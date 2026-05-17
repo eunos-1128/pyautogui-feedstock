@@ -17,6 +17,9 @@ build:
     - "DISPLAY=localhost:1.0 xvfb-run {{ PYTHON }} -m pip install . -vv"  # [linux]
 
 requirements:
+  build:
+    - python                              # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
   host:
     - pip
     - python
@@ -33,7 +36,7 @@ requirements:
     - pyscreeze >=0.1.21
     - python
     - pytweening >=1.0.4
-    - python-xlib
+    - python-xlib  # [linux]
 
 test:
 # Disabling test suite for now so many of them requires 
